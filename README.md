@@ -1,9 +1,9 @@
-🏋️ AI Fitness Tracker – Real-Time Form Correction & Rep Counter
+# 🏋️ AI Fitness Tracker – Real-Time Form Correction & Rep Counter
 
 An innovative web-based fitness application built using Python and Computer Vision that provides real-time exercise form correction and automatic repetition counting through a webcam feed.
 The system uses pose estimation and joint-angle analysis to track workouts accurately while delivering instant feedback to help users maintain proper form and reduce injury risk.
 
-✨ Features
+# ✨ Features
 
 Real-Time Pose Detection
 Tracks 33 human body landmarks using MediaPipe Pose.
@@ -12,23 +12,14 @@ Tracks 33 human body landmarks using MediaPipe Pose.
 Accurate rep counting and form logic for:
 
 Bicep Curl
-
 Squat
-
 Push Up
-
 Tricep Extension
-
 Shoulder Press
-
 Forward Lunge
-
 Deadlift
-
 Leg Raise (Abs)
-
 Lateral Raise
-
 Plank (time-based)
 
 Live Form Feedback
