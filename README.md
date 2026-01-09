@@ -38,7 +38,7 @@ User signup/login with workout history stored in JSON files.
 Visually Engaging UI
 Full-screen webcam feed with overlayed stats, rep count, and feedback banner.
 
-🛠️ Technology Stack
+# 🛠️ Technology Stack
 Component	Technology	Purpose
 Backend	Python 3.x, Flask	Routing, APIs, session handling
 Computer Vision	MediaPipe Pose	Human pose estimation
@@ -48,13 +48,11 @@ Data Storage	JSON Files	User and workout persistence
 Production Server	Gunicorn	Production deployment (Heroku)
 🚀 Getting Started (Local Development)
 
-⚠️ Important:
+#⚠️ Important:
 This application must be run locally to access your webcam. Remote servers cannot access local hardware.
 
 Prerequisites
-
 Python 3.8+
-
 Webcam
 
 1️⃣ Clone the Repository
@@ -66,14 +64,9 @@ python -m venv venv
 
 
 Activate the environment:
-
 Linux / macOS
-
 source venv/bin/activate
-
-
 Windows
-
 venv\Scripts\activate
 
 3️⃣ Install Dependencies
@@ -83,18 +76,15 @@ pip install -r requirements.txt
 python app.py
 
 5️⃣ Access the App
-
 Open your browser and visit:
 
 🌐 http://127.0.0.1:5000
 
 Demo Credentials
-
 Email: demo@fit.com
-
 Password: password
 
-💻 Code Structure & Highlights
+# 💻 Code Structure & Highlights
 Core File: app.py
 Component	Description
 generate_frames()	Captures webcam frames, runs pose detection, applies rep logic, and streams video
@@ -103,73 +93,32 @@ calculate_angle(a, b, c)	Computes joint angles in degrees from landmark coordina
 Rep Counting Logic	State machine using stage (up / down) to ensure full motion
 API Endpoints	/set_exercise, /reset_workout, /video_feed
 UI Overlay	Stats and feedback rendered directly on frames using OpenCV
-🏋️ Supported Exercises (10 Total)
 
-Each exercise uses custom joint-angle thresholds for accuracy.
-
-Bicep Curl
-
-Squat
-
-Push Up
-
-Tricep Extension
-
-Shoulder Press
-
-Forward Lunge
-
-Deadlift
-
-Leg Raise
-
-Lateral Raise
-
-Plank (time-based)
 Deployment (Heroku)
-
 This application is deployable on Heroku (PaaS).
-
 ❌ Netlify is not supported — it cannot run Python servers or access hardware.
 
 Deployment Requirements
-
 gunicorn included in requirements.txt
-
 Procfile:
-
 web: gunicorn app:app
-
-
 Set SECRET_KEY as an environment variable in Heroku
 
 Deployment Method
-
 Connect GitHub repository to Heroku
-
 Enable automatic deployments
 
-⚠️ Important Note on Webcam Access
-
+# ⚠️ Important Note on Webcam Access
 When deployed remotely (e.g., on Heroku), the application cannot access your local webcam using:
-
 cv2.VideoCapture(0)
-
-
 ✔️ All real-time Computer Vision features work only in local execution.
 
-🤝 Contribution
-
+# 🤝 Contribution
 Contributions are welcome!
-
 Report bugs
-
 Improve form logic
-
 Add new exercises
-
 Optimize performance
-
 Feel free to open an issue or submit a pull request.
 
 <img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/762b8e86-c9bb-47b6-9628-42ce32380801" />
