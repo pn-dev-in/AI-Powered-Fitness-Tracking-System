@@ -169,8 +169,6 @@ Feel free to open an issue or submit a pull request.
 
 <img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/762b8e86-c9bb-47b6-9628-42ce32380801" />
 
-<img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/7947b0b1-b25d-44fd-af37-ddabebadcfc0" />
-
 <img width="1364" height="579" alt="image" src="https://github.com/user-attachments/assets/e065c785-7f19-4264-b8f5-e9fb6b1ff091" />
 
 <img width="1365" height="601" alt="image" src="https://github.com/user-attachments/assets/cccfaf87-6ac1-4855-ab98-c64fbf0a9892" />
