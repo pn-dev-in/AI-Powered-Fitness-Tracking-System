@@ -9,9 +9,29 @@ Real-Time Pose Detection
 
 Tracks 33 human body landmarks using MediaPipe Pose.
 
-10 Supported Exercises
-
 Accurate rep counting and form logic for:
+
+Displays instant on-screen guidance such as:
+
+“FIX: Keep Back Straight”
+
+Automated Rep Counting
+
+Uses joint-angle thresholds and a state-machine approach to ensure only valid reps are counted.
+
+Performance Optimized
+
+Frame skipping and resolution downscaling provide smooth, low-latency video streaming.
+
+Authentication & Persistence
+
+User signup/login with workout history stored in JSON files.
+
+Visually Engaging UI
+
+Full-screen webcam feed with overlayed stats, rep count, and feedback banner.
+
+# ✔️10 Supported Exercises
 
 Bicep Curl
 
@@ -34,26 +54,6 @@ Lateral Raise
 Plank (time-based)
 
 Live Form Feedback
-
-Displays instant on-screen guidance such as:
-
-“FIX: Keep Back Straight”
-
-Automated Rep Counting
-
-Uses joint-angle thresholds and a state-machine approach to ensure only valid reps are counted.
-
-Performance Optimized
-
-Frame skipping and resolution downscaling provide smooth, low-latency video streaming.
-
-Authentication & Persistence
-
-User signup/login with workout history stored in JSON files.
-
-Visually Engaging UI
-
-Full-screen webcam feed with overlayed stats, rep count, and feedback banner.
 
 # 🛠️ Technology Stack
 Component	Technology	Purpose
