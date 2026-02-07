@@ -105,8 +105,19 @@ Email: demo@fit.com
 
 Password: password
 
+```
 🧠 System Design & Core Logic
 Core File: app.py
+
+## 📷 Screenshots
+![Login/Signup Page](https://github.com/user-attachments/assets/1daf0ed3-6a1d-4eb0-97ff-ed861cb4e622)
+
+![Dashboard](https://github.com/user-attachments/assets/f789ccf4-b858-4f51-8f75-b3fef4263b80)
+
+![Tracking Page](https://github.com/user-attachments/assets/f3ef0bca-13f3-4b8f-800b-29a3eb867a6b)
+
+![Activity_Page](https://github.com/user-attachments/assets/74ceda3b-ca0c-476f-84ef-fed386d3e4b5)
+
 
 Component	Description
 generate_frames()	Captures webcam frames, runs pose detection, applies rep logic, and streams video
@@ -115,6 +126,7 @@ calculate_angle(a, b, c)	Computes joint angles (degrees) from pose landmarks
 Rep Counting Logic	State machine using stage (up / down) to ensure valid repetitions
 API Endpoints	/set_exercise, /reset_workout, /video_feed
 UI Overlay	Rep count, feedback, and stats rendered directly on frames using OpenCV
+
 🚀 Deployment Notes
 This application can be deployed on platforms like Heroku (PaaS) for demonstration purposes.
 
@@ -147,4 +159,5 @@ Feel free to open an issue or submit a pull request.
 ⚠️ Disclaimer
 This project is intended for educational and experimental use.
 It is not certified for medical, rehabilitation, or professional fitness applications.
+
 
