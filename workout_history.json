@@ -1,0 +1,75 @@
+[
+    {
+        "exercise": "bicep_curl",
+        "reps": 5,
+        "calories": 2.5,
+        "duration": 54,
+        "timestamp": "2025-11-29T12:57:39.980746"
+    },
+    {
+        "exercise": "bicep_curl",
+        "reps": 5,
+        "calories": 2.5,
+        "duration": 47,
+        "timestamp": "2025-11-29T11:36:13.967283"
+    },
+    {
+        "exercise": "bicep_curl",
+        "reps": 3,
+        "calories": 1.5,
+        "duration": 97,
+        "timestamp": "2025-11-28T11:20:24.067700"
+    },
+    {
+        "exercise": "bicep_curl",
+        "reps": 7,
+        "calories": 3.5,
+        "duration": 194,
+        "timestamp": "2025-11-28T11:17:43.258717"
+    },
+    {
+        "exercise": "bicep_curl",
+        "reps": 13,
+        "calories": 6.5,
+        "duration": 279,
+        "timestamp": "2025-11-26T04:10:11.854732"
+    },
+    {
+        "exercise": "bicep_curl",
+        "reps": 5,
+        "calories": 2.5,
+        "duration": 63,
+        "timestamp": "2025-11-26T04:01:38.761883"
+    },
+    {
+        "date": "2025-11-26 03:26",
+        "exercise": "bicep_curl",
+        "reps": 9,
+        "calories": 4.5,
+        "duration": "01:25"
+    },
+    {
+        "date": "2025-11-26 02:57",
+        "exercise": "bicep_curl",
+        "reps": 9,
+        "calories": 4.5
+    },
+    {
+        "date": "2025-11-26 02:56",
+        "exercise": "bicep_curl",
+        "reps": 9,
+        "calories": 4.5
+    },
+    {
+        "date": "2025-11-26 02:48:39",
+        "exercise": "bicep_curl",
+        "reps": 1,
+        "calories": 0.4
+    },
+    {
+        "date": "2025-11-26 02:43:00",
+        "exercise": "bicep_curl",
+        "reps": 2,
+        "calories": 0.8
+    }
+]

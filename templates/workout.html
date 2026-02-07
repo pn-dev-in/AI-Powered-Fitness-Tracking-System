@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="display: grid; grid-template-columns: 300px 1fr; gap: 20px;">
+    
+    <div class="card">
+        <h2>Controls</h2>
+        <label>Select Exercise</label>
+        <select id="exerciseSelect">
+            <option value="none">-- Select --</option>
+            <option value="bicep_curl">Bicep Curl</option>
+            <option value="squat">Squat</option>
+            <option value="pushup">Push Up</option>
+        </select>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+            <button onclick="startExercise()" class="btn-green">▶ Start</button>
+            <button onclick="stopExercise()" class="btn-red">⏹ Stop</button>
+            <button onclick="resetWorkout()" class="btn-orange">↺ Reset</button>
+        </div>
+
+        <hr style="border-color: rgba(255,255,255,0.2); margin: 20px 0;">
+        
+        <h3>Stats</h3>
+        <p>Exercise: <b id="statEx">-</b></p>
+        <p>Reps: <b id="statReps" style="font-size: 1.4rem">0</b></p>
+        <p>Calories: <b id="statCals">0</b></p>
+        <p>Time: <b id="statTime">00:00</b></p>
+        
+        <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px; text-align: center; margin-top: 10px;">
+            <span id="statFeedback" style="color: #fbd38d; font-weight: bold;">Ready</span>
+        </div>
+        
+        <hr style="border-color: rgba(255,255,255,0.2); margin: 20px 0;">
+        <h3>History</h3>
+        <div id="historyList" style="font-size: 0.85rem; max-height: 150px; overflow-y: auto;"></div>
+    </div>
+
+    <div class="card" style="padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; background: black; position: relative; height: 550px;">
+        <img src="{{ url_for('video_feed') }}" style="height: 100%; width: auto; max-width: 100%;">
+        
+        <div style="position: absolute; bottom: 30px; left: 0; right: 0; text-align: center; text-shadow: 2px 2px 4px #000;">
+            <span id="overlayReps" style="font-size: 5rem; font-weight: bold;">0</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function startExercise() {
+        const ex = document.getElementById('exerciseSelect').value;
+        if(ex === 'none') return alert("Please select an exercise");
+        fetch('/set_exercise', {
+            method: 'POST', body: new URLSearchParams({'exercise': ex})
+        });
+    }
+
+    function stopExercise() {
+        fetch('/stop_exercise', {method: 'POST'});
+        document.getElementById('statFeedback').innerText = "Stopped";
+    }
+
+    function resetWorkout() {
+        fetch('/reset_workout', {method: 'POST'})
+        .then(() => updateHistory());
+    }
+
+    function updateStats() {
+        fetch('/get_stats')
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById('statEx').innerText = data.exercise;
+            document.getElementById('statReps').innerText = data.reps;
+            document.getElementById('overlayReps').innerText = data.reps;
+            document.getElementById('statCals').innerText = data.calories;
+            document.getElementById('statTime').innerText = data.duration;
+            document.getElementById('statFeedback').innerText = data.form_feedback;
+        });
+    }
+
+    function updateHistory() {
+        fetch('/get_history').then(r => r.json()).then(data => {
+            let html = "";
+            data.forEach(d => {
+                html += `<div style="border-bottom:1px solid rgba(255,255,255,0.1); padding: 5px;">${d.date.split(' ')[1]} - <b>${d.exercise}</b> (${d.reps} reps)</div>`;
+            });
+            document.getElementById('historyList').innerHTML = html;
+        });
+    }
+
+    setInterval(updateStats, 500);
+    updateHistory();
+</script>
+{% endblock %}
