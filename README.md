@@ -119,31 +119,32 @@ Core File: app.py
 ![Activity_Page](https://github.com/user-attachments/assets/74ceda3b-ca0c-476f-84ef-fed386d3e4b5)
 
 
-#Component	Description
-generate_frames()	Captures webcam frames, runs pose detection, applies rep logic, and streams video
-Optimization	Uses FRAME_SKIP_FACTOR = 3 and frame resizing for reduced latency
-calculate_angle(a, b, c)	Computes joint angles (degrees) from pose landmarks
-Rep Counting Logic	State machine using stage (up / down) to ensure valid repetitions
-API Endpoints	/set_exercise, /reset_workout, /video_feed
-UI Overlay	Rep count, feedback, and stats rendered directly on frames using OpenCV
+##Component	Description
 
-#🚀 Deployment Notes
+- generate_frames()	Captures webcam frames, runs pose detection, applies rep logic, and streams video
+- Optimization	Uses FRAME_SKIP_FACTOR = 3 and frame resizing for reduced latency
+- calculate_angle(a, b, c)	Computes joint angles (degrees) from pose landmarks
+- Rep Counting Logic	State machine using stage (up / down) to ensure valid repetitions
+- API Endpoints	/set_exercise, /reset_workout, /video_feed
+- UI Overlay	Rep count, feedback, and stats rendered directly on frames using OpenCV
+
+##🚀 Deployment Notes
 This application can be deployed on platforms like Heroku (PaaS) for demonstration purposes.
 
-#Important limitation:
+##Important limitation:
 Remote deployments cannot access local webcams via:
 
 cv2.VideoCapture(0)
 As a result, all real-time computer vision functionality works only during local execution.
 
-#🎯 Intended Role Fit
+##🎯 Intended Role Fit
 Computer Vision Engineer (Entry-Level)
 
 AI/ML Engineer (Applied Systems)
 
 Software Engineer with ML integration
 
-#🤝 Contribution
+##🤝 Contribution
 Contributions are welcome:
 
 Improve form validation logic
@@ -156,7 +157,7 @@ Fix bugs or refactor code
 
 Feel free to open an issue or submit a pull request.
 
-#⚠️ Disclaimer
+##⚠️ Disclaimer
 This project is intended for educational and experimental use.
 It is not certified for medical, rehabilitation, or professional fitness applications.
 
