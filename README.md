@@ -1,171 +1,152 @@
-# 🏋️ AI Fitness Tracker – Real-Time Form Correction & Rep Counter
+# AI Fitness Tracker (Computer Vision–Based Form Correction)
 
-An innovative web-based fitness application built using Python and Computer Vision that provides real-time exercise form correction and automatic repetition counting through a webcam feed.
-The system uses pose estimation and joint-angle analysis to track workouts accurately while delivering instant feedback to help users maintain proper form and reduce injury risk.
+A real-time **computer vision system** that analyzes human pose through a webcam to **count exercise repetitions and provide corrective feedback** during workouts.  
+The project focuses on **applied CV, motion analysis, and real-time performance**, not just library usage.
 
-# ✨ Features
+---
 
-Real-Time Pose Detection
+## 🔍 What This Project Demonstrates
+- Applied computer vision using human pose estimation  
+- Joint-angle computation and biomechanics-based logic  
+- State-machine driven repetition counting  
+- Real-time video processing with performance optimizations  
+- End-to-end ML-integrated web application (CV + backend + UI)
 
-Tracks 33 human body landmarks using MediaPipe Pose.
+---
 
-Accurate rep counting and form logic for:
+## 📌 Overview
+The AI Fitness Tracker uses **MediaPipe Pose** and **OpenCV** to track body landmarks, compute joint angles, and validate exercise form in real time.  
+Only correctly performed movements are counted, and users receive **instant visual feedback** to reduce injury risk and improve workout quality.
 
-Displays instant on-screen guidance such as:
+This application is designed for **local execution**, where real-time computer vision can directly access webcam hardware.
 
-“FIX: Keep Back Straight”
+---
 
-Automated Rep Counting
+## ✨ Key Features
 
-Uses joint-angle thresholds and a state-machine approach to ensure only valid reps are counted.
+### Pose & Motion Analysis
+- 33-point human pose tracking using MediaPipe Pose  
+- Joint-angle calculation for form validation and motion detection  
 
-Performance Optimized
+### Rep Counting & Feedback
+- State-machine based repetition counting (up/down stages)  
+- Live, on-screen corrective feedback for improper form  
 
-Frame skipping and resolution downscaling provide smooth, low-latency video streaming.
+### Performance Optimization
+- Frame skipping to reduce computational load  
+- Resolution downscaling for smooth, low-latency video streaming  
 
-Authentication & Persistence
+---
 
-User signup/login with workout history stored in JSON files.
+## ✔️ Supported Exercises (10)
+- Bicep Curl  
+- Squat  
+- Push Up  
+- Tricep Extension  
+- Shoulder Press  
+- Forward Lunge  
+- Deadlift  
+- Leg Raise (Abs)  
+- Lateral Raise  
+- Plank (time-based)
 
-Visually Engaging UI
+Each exercise uses **custom joint-angle thresholds and validation logic**.
 
-Full-screen webcam feed with overlayed stats, rep count, and feedback banner.
+---
 
-# ✔️10 Supported Exercises
+## 🛠️ Technology Stack
 
-Bicep Curl
+| Component | Technology | Purpose |
+|--------|-----------|--------|
+| Backend | Python 3.x, Flask | Routing, APIs, session handling |
+| Computer Vision | MediaPipe Pose | Human pose estimation |
+| Video Processing | OpenCV (cv2) | Webcam capture & frame processing |
+| Frontend | HTML, CSS, JavaScript | UI rendering & interaction |
+| Data Storage | JSON Files | User and workout persistence |
+| Production Server | Gunicorn | Application serving |
 
-Squat
+---
 
-Push Up
+## 🚀 Getting Started (Local Development)
 
-Tricep Extension
+> ⚠️ **Important:**  
+> This application must be run **locally** to access your webcam.  
+> Remote servers cannot access local hardware.
 
-Shoulder Press
+### Prerequisites
+- Python 3.8+
+- Webcam
 
-Forward Lunge
-
-Deadlift
-
-Leg Raise (Abs)
-
-Lateral Raise
-
-Plank (time-based)
-
-Live Form Feedback
-
-# 🛠️ Technology Stack
-Component	Technology	Purpose
-Backend	Python 3.x, Flask	Routing, APIs, session handling
-Computer Vision	MediaPipe Pose	Human pose estimation
-Video Processing	OpenCV (cv2)	Webcam capture & frame processing
-Frontend	HTML, CSS, JavaScript	UI rendering & user interaction
-Data Storage	JSON Files	User and workout persistence
-Production Server	Gunicorn	Production deployment (Heroku)
-🚀 Getting Started (Local Development)
-
-#⚠️ Important:
-
-This application must be run locally to access your webcam. Remote servers cannot access local hardware.
-
-Prerequisites :- Python 3.8+
-
-Webcam
-
-1️⃣ Clone the Repository
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/your-username/ai-fitness-tracker.git
-
 cd ai-fitness-tracker
-
 2️⃣ Set Up Virtual Environment
-
 python -m venv venv
-
-Activate the environment:
+Activate:
 
 Linux / macOS
 
 source venv/bin/activate
-
 Windows
 
 venv\Scripts\activate
-
 3️⃣ Install Dependencies
-
 pip install -r requirements.txt
-
 4️⃣ Run the Application
-
 python app.py
-
 5️⃣ Access the App
+Open your browser:
 
-Open your browser and visit:
-
-🌐 http://127.0.0.1:5000
-
+http://127.0.0.1:5000
 Demo Credentials
 
 Email: demo@fit.com
 
 Password: password
 
-# 💻 Code Structure & Highlights
-
+🧠 System Design & Core Logic
 Core File: app.py
 
 Component	Description
-
 generate_frames()	Captures webcam frames, runs pose detection, applies rep logic, and streams video
 Optimization	Uses FRAME_SKIP_FACTOR = 3 and frame resizing for reduced latency
-calculate_angle(a, b, c)	Computes joint angles in degrees from landmark coordinates
-Rep Counting Logic	State machine using stage (up / down) to ensure full motion
+calculate_angle(a, b, c)	Computes joint angles (degrees) from pose landmarks
+Rep Counting Logic	State machine using stage (up / down) to ensure valid repetitions
 API Endpoints	/set_exercise, /reset_workout, /video_feed
-UI Overlay	Stats and feedback rendered directly on frames using OpenCV
+UI Overlay	Rep count, feedback, and stats rendered directly on frames using OpenCV
+🚀 Deployment Notes
+This application can be deployed on platforms like Heroku (PaaS) for demonstration purposes.
 
-Deployment (Heroku)
+Important limitation:
+Remote deployments cannot access local webcams via:
 
-This application is deployable on Heroku (PaaS).
-
-❌ Netlify is not supported — it cannot run Python servers or access hardware.
-
-Deployment Requirements
-
-gunicorn included in requirements.txt
-
-Procfile:
-web: gunicorn app:app
-
-Set SECRET_KEY as an environment variable in Heroku
-
-Deployment Method
-
-Connect GitHub repository to Heroku
-
-Enable automatic deployments
-
-# ⚠️ Important Note on Webcam Access
-
-When deployed remotely (e.g., on Heroku), the application cannot access your local webcam using:
 cv2.VideoCapture(0)
+As a result, all real-time computer vision functionality works only during local execution.
 
-✔️ All real-time Computer Vision features work only in local execution.
+🎯 Intended Role Fit
+Computer Vision Engineer (Entry-Level)
 
-# 🤝 Contribution
+AI/ML Engineer (Applied Systems)
 
-Contributions are welcome!
+Software Engineer with ML integration
 
-Report bugs
+🤝 Contribution
+Contributions are welcome:
 
-Improve form logic
+Improve form validation logic
 
 Add new exercises
 
 Optimize performance
 
+Fix bugs or refactor code
+
 Feel free to open an issue or submit a pull request.
+
+⚠️ Disclaimer
+This project is intended for educational and experimental use.
+It is not certified for medical, rehabilitation, or professional fitness applications.
 
 <img width="1366" height="564" alt="image" src="https://github.com/user-attachments/assets/762b8e86-c9bb-47b6-9628-42ce32380801" />
 
